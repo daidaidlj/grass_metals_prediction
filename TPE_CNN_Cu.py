@@ -20,9 +20,9 @@ from hyperopt import fmin, hp
 
 # Step 1: defien the training and testing data
 
-file_path = "E:/grass_three_places/submit to EST_windows/first_revision/data_10162024/"
 
-data = pd.read_csv(file_path +"data_for_submit.csv")
+
+data = pd.read_csv("data_for_submit.csv")
 
 
 # Define the dependent (target) and independent variables
