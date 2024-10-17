@@ -19,7 +19,7 @@ import pandas as pd
 
 # Define the dependent (target) and independent variables
 
-file_path = "E:/grass_three_places/submit to EST_windows/first_revision/data_10162024/"
+
 
 data = pd.read_csv("data_for_submit.csv")
 
