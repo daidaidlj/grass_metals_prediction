@@ -241,36 +241,7 @@ export_feature_importance_to_csv(feature_importances, feature_names, filename="r
 
 
 
-def export_data_to_csv(X_train, X_test, y_train, y_test, filename="train_test_data.csv"):
-    # Convert X_train and X_test to DataFrames (if not already DataFrames)
-    if isinstance(X_train, np.ndarray):
-        X_train = pd.DataFrame(X_train, columns=[f"Feature {i}" for i in range(X_train.shape[1])])
-    if isinstance(X_test, np.ndarray):
-        X_test = pd.DataFrame(X_test, columns=[f"Feature {i}" for i in range(X_test.shape[1])])
 
-    # Convert y_train and y_test to DataFrames (if not already DataFrames or Series)
-    if isinstance(y_train, (np.ndarray, pd.Series)):
-        y_train = pd.DataFrame(y_train, columns=['Target'])
-    if isinstance(y_test, (np.ndarray, pd.Series)):
-        y_test = pd.DataFrame(y_test, columns=['Target'])
-
-    # Add target values to the feature DataFrames
-    X_train = pd.concat([X_train, y_train], axis=1)
-    X_test = pd.concat([X_test, y_test], axis=1)
-
-    # Add a column to differentiate between train and test data
-    X_train['Dataset'] = 'Train'
-    X_test['Dataset'] = 'Test'
-
-    # Concatenate the train and test data into a single DataFrame
-    combined_df = pd.concat([X_train, X_test], ignore_index=True)
-    
-    # Export to CSV
-    combined_df.to_csv(filename, index=False)
-
-
-# Example usage: Export your train and test data to CSV
-export_data_to_csv(X_train, X_test, y_train, y_test, filename="train_test_data_Cu.csv")
 
 
 
