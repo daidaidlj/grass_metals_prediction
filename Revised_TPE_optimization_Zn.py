@@ -252,29 +252,7 @@ else:
 # Export the ranked feature importance to a CSV file
 export_feature_importance_to_csv(feature_importances, feature_names, filename="ranked_feature_importance_Zn.csv")
 
-def export_data_to_csv(X_train, X_test, y_train, y_test, filename="train_test_data.csv"):
-    # Convert X_train and X_test to DataFrames (if not already DataFrames)
-    if isinstance(X_train, np.ndarray):
-        X_train = pd.DataFrame(X_train, columns=[f"Feature {i}" for i in range(X_train.shape[1])])
-        X_test = pd.DataFrame(X_test, columns=[f"Feature {i}" for i in range(X_test.shape[1])])
 
-    # Add target values to the DataFrames
-    X_train['Target'] = y_train
-    X_test['Target'] = y_test
-
-    # Add a column to differentiate between train and test data
-    X_train['Dataset'] = 'Train'
-    X_test['Dataset'] = 'Test'
-
-    # Concatenate the train and test data into a single DataFrame
-    combined_df = pd.concat([X_train, X_test], ignore_index=True)
-    
-    # Export to CSV
-    combined_df.to_csv(filename, index=False)
-    print(f"Train and test data exported to {filename}")
-
-# Example usage: Export your train and test data to CSV
-export_data_to_csv(X_train, X_test, y_train, y_test, filename="train_test_data_Zn.csv")
 
 
 
